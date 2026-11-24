@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/* Tokens de cor. Contrastes com texto branco >= 4.5:1 (WCAG AA). */
+:root {
+  --background: #f1f5f9;
+  --surface: #ffffff;
+  --foreground: #0f172a;
+  --muted: #475569;
+  --border: #e2e8f0;
+
+  --pegar: #1d4ed8;        /* azul — PEGAR CARONA */
+  --pegar-dark: #1e3a8a;
+  --pegar-soft: #dbeafe;
+  --oferecer: #c2410c;     /* laranja — OFERECER CARONA */
+  --oferecer-dark: #9a3412;
+  --oferecer-soft: #ffedd5;
+  --pontos: #6d28d9;       /* violeta — PONTOS PARA BIXETES */
+  --pontos-dark: #4c1d95;
+  --pontos-soft: #ede9fe;
+  --whatsapp: #15803d;
+  --whatsapp-dark: #166534;
+  --danger: #b91c1c;
+  --danger-soft: #fee2e2;
+  --success: #15803d;
+  --success-soft: #dcfce7;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-pegar: var(--pegar);
+  --color-pegar-dark: var(--pegar-dark);
+  --color-pegar-soft: var(--pegar-soft);
+  --color-oferecer: var(--oferecer);
+  --color-oferecer-dark: var(--oferecer-dark);
+  --color-oferecer-soft: var(--oferecer-soft);
+  --color-pontos: var(--pontos);
+  --color-pontos-dark: var(--pontos-dark);
+  --color-pontos-soft: var(--pontos-soft);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-dark: var(--whatsapp-dark);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --font-sans: var(--font-geist-sans);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Foco visível para navegação por teclado. */
+:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* Espaço para a barra inferior + área segura do iPhone. */
+.pb-safe-nav {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Transição suave entre etapas dos wizards. */
+@keyframes step-in {
+  from { opacity: 0; transform: translateX(14px); }
+  to { opacity: 1; transform: none; }
+}
+.step-enter {
+  animation: step-in 180ms ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .step-enter { animation: none; }
+}
